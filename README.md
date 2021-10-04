@@ -1,29 +1,12 @@
-# Next.js + Tailwind CSS Example
+# Team Metrics 📈
+(Boring placeholder name for now.. 😅)
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## What?
+Simple web application that ingests team performance data via an .xls (Excel sheet) file and processes it to create useful metric and nice-to-have highlights and insights all displayed on a disgestible and easy to use user interface. 🙌
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
-
-## Preview
-
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Why?
+At my work, team metrics are an important part of measuring how we've been performing as of late and helps us identify things we should keep or stop doing! Unfortunately this process has been manually and the responsibility rotates to a different person on the team each week. &nbsp;
+&nbsp;
+We like stats. If you're new on our team and to the process of recording our metrics, it may take you about an hour or so to get through the process. Even if you've done it before, you might need to take a bit of time to refresh yourself on the process!
+&nbsp;
+This all takes time and so I thought I'd come up with a handy tool to ingest issue information, runs the calculations and displays it pretty charts that you can copy and share with the team. 🤝
