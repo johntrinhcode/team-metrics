@@ -1,5 +1,6 @@
 import { FiUpload } from 'react-icons/fi';
 import { DragEvent, useState, ChangeEvent } from 'react';
+import axios from 'axios';
 
 export default function FileUpload() {
   const [fileName, setFileName] = useState(null);
@@ -33,6 +34,14 @@ export default function FileUpload() {
     }
   }
 
+  const uploadFileHandler = () => {
+    if (fileName) {
+      axios.post('http://localhost:3000/api/parseFile').then(response => {
+        console.log(response);
+      });
+    }
+  }
+
   return (
     <section className="flex flex-col pt-8 px-8 pb-16 rounded-md">
       <span className="text-4xl font-bold text-gray-700">Upload</span>
@@ -46,7 +55,7 @@ export default function FileUpload() {
             }
           </span>
         </label>
-        <button className={ "flex h-full w-14 rounded-md text-white justify-center items-center  transition-all duration-200 " + (fileName ? 'bg-indigo-400 hover:bg-indigo-500' : 'bg-gray-300 cursor-not-allowed')}>
+        <button onClick={ uploadFileHandler} className={ "flex h-full w-14 rounded-md text-white justify-center items-center  transition-all duration-200 " + (fileName ? 'bg-indigo-400 hover:bg-indigo-500' : 'bg-gray-300 cursor-not-allowed')}>
           <FiUpload className="h-6 w-6"/>
         </button>
       </div>
