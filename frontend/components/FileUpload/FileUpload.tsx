@@ -3,8 +3,12 @@ import { DragEvent, useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import readXlsxFile from 'read-excel-file';
 import excelFileSchema from '../../utils/MetricSchema';
-export default function FileUpload() {
+import { useRouter } from 'next/router';
+
+export default function FileUpload({ setMetricData }) {
   const [file, setFile] = useState<File | undefined>(null);
+  const [isFileUploading, setIsFileUploading] = useState<Boolean>(false);
+  const router = useRouter();
 
   const fileUploadHandler = (event: ChangeEvent<HTMLInputElement>) => {
     if (event?.target?.files[0]) {
@@ -37,11 +41,19 @@ export default function FileUpload() {
   }
 
   const uploadFileHandler = () => {
+    setIsFileUploading(true);
     const schema = excelFileSchema;
     if (file) {
       readXlsxFile(file, { schema }).then(({ rows, errors }) => {
+        if (errors.length) throw (errors)
         axios.post('http://localhost:3000/api/parseFile', rows).then(response => {
-          // console.log(response);
+          console.log(response.data);
+          setIsFileUploading(false);
+          console.log(setMetricData);
+          setMetricData(response.data);
+          router.push('/metric-chart');
+        }).catch(error => {
+          console.log(error);
         });
       });
     } 

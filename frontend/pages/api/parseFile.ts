@@ -4,11 +4,10 @@ import dayjs from 'dayjs';
 export default function parseFileHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     res.status(400).send({ message: 'Only POST requests allowed' });
+  } else {
+    const metricWeeks = processMetricRows(<Metric[]> req.body);
+    res.status(200).send(metricWeeks);
   }
-  processMetricRows(<Metric[]> req.body);
-  
-
-  res.status(200).send(req.body);
 }
 
 function processMetricRows(rows: Metric[]) {
@@ -30,5 +29,5 @@ function processMetricRows(rows: Metric[]) {
     metricWeeks.push(metricWeek);
   });
 
-  console.log(metricWeeks);
+  return metricWeeks;
 }

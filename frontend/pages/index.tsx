@@ -2,7 +2,7 @@ import Head from 'next/head'
 
 import FileUpload from '../components/FileUpload/FileUpload';
 
-export default function Home() {
+export default function Home({ setMetricData }) {
 
   
   return (
@@ -13,12 +13,12 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <FileUpload />
+        <FileUpload setMetricData={ setMetricData }/>
       </main>
 
       <footer>
         
       </footer>
     </div>
-  )
+  );
 }
